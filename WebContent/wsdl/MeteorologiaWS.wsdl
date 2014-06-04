@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.informatica.udistrital.edu.co" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.informatica.udistrital.edu.co" xmlns:intf="http://service.informatica.udistrital.edu.co" xmlns:tns1="http://dto.informatica.udistrital.edu.co" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.informatica.udistrital.edu.co" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dto.informatica.udistrital.edu.co"/>
+   <element name="cargarValorSensorXIdSensor">
+    <complexType>
+     <sequence>
+      <element name="idSensor" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cargarValorSensorXIdSensorResponse">
+    <complexType>
+     <sequence>
+      <element name="cargarValorSensorXIdSensorReturn" type="tns1:DatosMeteorologicosDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cargarValorHistoricoXIdSensor">
+    <complexType>
+     <sequence>
+      <element name="idSensor" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cargarValorHistoricoXIdSensorResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="cargarValorHistoricoXIdSensorReturn" type="tns1:DatosMeteorologicosDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertarDatos">
+    <complexType>
+     <sequence>
+      <element name="estacion" type="xsd:int"/>
+      <element name="latitud" type="xsd:string"/>
+      <element name="longitud" type="xsd:string"/>
+      <element name="dato" type="xsd:string"/>
+      <element name="tipoDato" type="xsd:string"/>
+      <element name="fecha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertarDatosResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://dto.informatica.udistrital.edu.co" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="DatosMeteorologicosDTO">
+    <sequence>
+     <element name="dato" nillable="true" type="xsd:string"/>
+     <element name="estacion" type="xsd:int"/>
+     <element name="fecha" nillable="true" type="xsd:string"/>
+     <element name="latitud" nillable="true" type="xsd:string"/>
+     <element name="longitud" nillable="true" type="xsd:string"/>
+     <element name="tipoDato" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="cargarValorHistoricoXIdSensorRequest">
+
+      <wsdl:part element="impl:cargarValorHistoricoXIdSensor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cargarValorSensorXIdSensorResponse">
+
+      <wsdl:part element="impl:cargarValorSensorXIdSensorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertarDatosResponse">
+
+      <wsdl:part element="impl:insertarDatosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertarDatosRequest">
+
+      <wsdl:part element="impl:insertarDatos" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cargarValorHistoricoXIdSensorResponse">
+
+      <wsdl:part element="impl:cargarValorHistoricoXIdSensorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cargarValorSensorXIdSensorRequest">
+
+      <wsdl:part element="impl:cargarValorSensorXIdSensor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MeteorologiaWS">
+
+      <wsdl:operation name="cargarValorSensorXIdSensor">
+
+         <wsdl:input message="impl:cargarValorSensorXIdSensorRequest" name="cargarValorSensorXIdSensorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cargarValorSensorXIdSensorResponse" name="cargarValorSensorXIdSensorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cargarValorHistoricoXIdSensor">
+
+         <wsdl:input message="impl:cargarValorHistoricoXIdSensorRequest" name="cargarValorHistoricoXIdSensorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cargarValorHistoricoXIdSensorResponse" name="cargarValorHistoricoXIdSensorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertarDatos">
+
+         <wsdl:input message="impl:insertarDatosRequest" name="insertarDatosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertarDatosResponse" name="insertarDatosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MeteorologiaWSSoapBinding" type="impl:MeteorologiaWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="cargarValorSensorXIdSensor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cargarValorSensorXIdSensorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cargarValorSensorXIdSensorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cargarValorHistoricoXIdSensor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cargarValorHistoricoXIdSensorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cargarValorHistoricoXIdSensorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertarDatos">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertarDatosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertarDatosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MeteorologiaWSService">
+
+      <wsdl:port binding="impl:MeteorologiaWSSoapBinding" name="MeteorologiaWS">
+
+         <wsdlsoap:address location="http://localhost:9191/MeteorologiaWS/services/MeteorologiaWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
